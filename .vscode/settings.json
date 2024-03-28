@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stm32f4xx.h": "c",
+        "stm32f401xc.h": "c",
+        "system_stm32f4xx.h": "c"
+    }
+}

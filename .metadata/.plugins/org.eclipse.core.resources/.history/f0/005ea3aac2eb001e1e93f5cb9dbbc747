@@ -1,0 +1,30 @@
+/* Define all needed address BusReg to toggle a led attached pin5 on port B with proteus 8*/
+#include 			"stm32f4xx.h"
+
+#define 			GPIOAEN			(1U<<0)
+//Enable apb1 bus where uart module is connected (reference manual)
+#define 			UART2EN			(1U<<17)
+void main(void)
+{
+
+}
+void uart2_tx_init(void){
+	/************Configure uart_gpio_pin***************/
+	/*Enable clock for gpioa*/
+	RCC->AHB1ENR |= GPIOAEN;
+	/*SET PA2 mode to alternate function mode(port a , pin2)*/
+	GPIOA->MODER &~ (1U<<4);
+	GPIOA->MODER |= (1U<<5);
+	/*SET PA2 alternate function type to UART_TX (AF7: in data sheet UART_2_TX and PA2 --> af7) (reference manual GPIO alternate function*/
+	GPIOA->AFR[0]|= (1U<<8);//0 for low register 1 for hight reg
+	GPIOA->AFR[0]|= (1U<<9);
+	GPIOA->AFR[0]|= (1U<<10);
+	GPIOA->AFR[0] &~ (1U<<11); // 0111:AF7 should be configured (look datasheet)
+	/************Configure uart module***************/
+	/*Enable clock access to uart2*/
+	RCC->APB1ENR |= UART2EN;
+	/*Configure the baudrate*/
+	/*Configure the transfer direction*/
+	/*Enable uart module*/
+
+}

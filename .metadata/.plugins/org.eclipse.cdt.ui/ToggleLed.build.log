@@ -1,0 +1,20 @@
+22:23:55 **** Incremental Build of configuration Debug for project ToggleLed ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:8:6: warning: return type of 'main' is not 'int' [-Wmain]
+    8 | void main(void)
+      |      ^~~~
+arm-none-eabi-gcc -o "ToggleLed.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\ToggleLed\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ToggleLed.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ToggleLed.elf
+ 
+arm-none-eabi-size  ToggleLed.elf 
+arm-none-eabi-objdump -h -S ToggleLed.elf  > "ToggleLed.list"
+   text	   data	    bss	    dec	    hex	filename
+    752	      8	   1568	   2328	    918	ToggleLed.elf
+Finished building: default.size.stdout
+ 
+Finished building: ToggleLed.list
+ 
+
+22:23:57 Build Finished. 0 errors, 1 warnings. (took 1s.795ms)
+

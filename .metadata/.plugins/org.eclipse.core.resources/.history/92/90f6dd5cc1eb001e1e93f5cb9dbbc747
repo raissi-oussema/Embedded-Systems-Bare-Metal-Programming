@@ -1,0 +1,10 @@
+/* Define all needed address BusReg to toggle a led attached pin5 on port B with proteus 8*/
+#include 			"stm32f4xx.h"
+
+#define 			GPIOAEN			(1U<<0)
+//Enable apb1 bus where uart module is connected (reference manual)
+#define 			UART2EN			(1U<<17)
+void main(void)
+{
+
+}

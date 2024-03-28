@@ -1,0 +1,11 @@
+#include "stm32f4xx.h"
+#define GPIOAEN		(1U<<0)
+#define PIN5		(1U<<5)
+#define LEDPIN		PIN5
+
+int main(void){
+	RCC->AHB1ENR |= GPIOAEN;
+	while(1){
+
+	}
+}

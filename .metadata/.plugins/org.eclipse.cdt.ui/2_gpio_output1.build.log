@@ -1,0 +1,17 @@
+22:20:09 **** Incremental Build of configuration Debug for project 2_gpio_output1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "2_gpio_output1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\2_gpio_output1\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_gpio_output1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 2_gpio_output1.elf
+ 
+arm-none-eabi-size  2_gpio_output1.elf 
+arm-none-eabi-objdump -h -S 2_gpio_output1.elf  > "2_gpio_output1.list"
+   text	   data	    bss	    dec	    hex	filename
+    756	      8	   1568	   2332	    91c	2_gpio_output1.elf
+Finished building: default.size.stdout
+ 
+Finished building: 2_gpio_output1.list
+ 
+
+22:20:11 Build Finished. 0 errors, 0 warnings. (took 1s.814ms)
+
