@@ -1,0 +1,16 @@
+01:24:59 **** Incremental Build of configuration Debug for project systick ****
+make -j4 all 
+arm-none-eabi-gcc -o "systick.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\systick\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="systick.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: systick.elf
+ 
+arm-none-eabi-size  systick.elf 
+arm-none-eabi-objdump -h -S systick.elf  > "systick.list"
+   text	   data	    bss	    dec	    hex	filename
+   5364	    100	   1900	   7364	   1cc4	systick.elf
+Finished building: default.size.stdout
+ 
+Finished building: systick.list
+ 
+
+01:25:00 Build Finished. 0 errors, 0 warnings. (took 996ms)
+

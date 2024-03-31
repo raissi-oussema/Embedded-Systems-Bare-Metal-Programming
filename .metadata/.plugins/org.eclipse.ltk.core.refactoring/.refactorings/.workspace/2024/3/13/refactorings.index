@@ -4,3 +4,5 @@
 1711400661779	Delete resource '2_gpio_output'
 1711488450496	Delete resource '2_gpio_output1'
 1711661164976	Rename resource 'uart_check'
+1711747763895	Delete resource 'ADC/Src/adc.h'
+1711834748796	Rename resource 'systic'

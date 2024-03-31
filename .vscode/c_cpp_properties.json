@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/chip_headers/CMSIS/Device/ST/STM32F4xx/Include",
-                "${workspaceFolder}"
+                "${workspaceFolder}",
+                "${workspaceFolder}/ADC/Inc"
             ],
             "defines": [
                 "_DEBUG",

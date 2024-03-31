@@ -29,23 +29,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  12 .comment      00000043  00000000  00000000  00010464  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00000475  00000000  00000000  000104a7  2**0
+ 13 .debug_info   00000513  00000000  00000000  000104a7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00000190  00000000  00000000  0001091c  2**0
+ 14 .debug_abbrev 00000204  00000000  00000000  000109ba  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000070  00000000  00000000  00010ab0  2**3
+ 15 .debug_aranges 00000088  00000000  00000000  00010bc0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 0000004b  00000000  00000000  00010b20  2**0
+ 16 .debug_rnglists 00000058  00000000  00000000  00010c48  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000daed  00000000  00000000  00010b6b  2**0
+ 17 .debug_macro  0000dbc0  00000000  00000000  00010ca0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000692  00000000  00000000  0001e658  2**0
+ 18 .debug_line   00000bd6  00000000  00000000  0001e860  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0004f0ed  00000000  00000000  0001ecea  2**0
+ 19 .debug_str    0004f104  00000000  00000000  0001f436  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  0000010c  00000000  00000000  0006ddd8  2**2
+ 20 .debug_frame  0000011c  00000000  00000000  0006e53c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000006e  00000000  00000000  0006dee4  2**0
+ 21 .debug_line_str 0000006e  00000000  00000000  0006e658  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -79,9 +79,9 @@ Disassembly of section .text:
  80001d0:	08000414 	.word	0x08000414
 
 080001d4 <main>:
-void uart2_rxtx_init(void);
-char uart_read(void);
-void uart2_write(int ch);
+#include "stm32f401xc.h"
+#include <stdint.h>
+#include "uart.h"
 
 void main(void)
 {
@@ -107,10 +107,11 @@ void main(void)
  80001f2:	e7f4      	b.n	80001de <main+0xa>
 
 080001f4 <uart2_rxtx_init>:
-		}
-	}
-	
-}
+//enable transmitter from refmanu(uasart_cr1 (contriol reg) bit number 3)
+#define             CR1_TE			(1U<<3)
+#define             CR1_UE			(1U<<13)//enable USART module
+#define 			SR_TXE          (1U<<7) // status register TXE (page 548)
+
 void uart2_rxtx_init(void){
  80001f4:	b580      	push	{r7, lr}
  80001f6:	af00      	add	r7, sp, #0
@@ -242,7 +243,7 @@ void uart2_rxtx_init(void){
 
 080002d4 <uart_set_baudrate>:
 
-static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t Baudrate){
+void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t Baudrate){
  80002d4:	b580      	push	{r7, lr}
  80002d6:	b084      	sub	sp, #16
  80002d8:	af00      	add	r7, sp, #0
@@ -264,7 +265,7 @@ static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_
  80002f6:	bd80      	pop	{r7, pc}
 
 080002f8 <compute_uart_bd>:
-static uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t Baudrate){
+uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t Baudrate){
  80002f8:	b480      	push	{r7}
  80002fa:	b083      	sub	sp, #12
  80002fc:	af00      	add	r7, sp, #0
@@ -330,7 +331,6 @@ char uart_read(void){
  8000362:	4b04      	ldr	r3, [pc, #16]	; (8000374 <uart_read+0x24>)
  8000364:	685b      	ldr	r3, [r3, #4]
  8000366:	b2db      	uxtb	r3, r3
-}
  8000368:	4618      	mov	r0, r3
  800036a:	46bd      	mov	sp, r7
  800036c:	f85d 7b04 	ldr.w	r7, [sp], #4
