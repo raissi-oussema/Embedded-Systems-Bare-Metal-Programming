@@ -5,6 +5,7 @@
         "system_stm32f4xx.h": "c",
         "adc.h": "c",
         "uart.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "exti.h": "c"
     }
 }

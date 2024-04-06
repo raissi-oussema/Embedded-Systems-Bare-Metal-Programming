@@ -1,0 +1,4 @@
+../Src/tim.c:8:6:tim2_1hz_init	1
+../Src/tim.c:30:6:tim2_pa5_compare_mode	1
+../Src/tim.c:68:6:tim3_pin6_input_capture	1
+../Src/tim.c:89:7:convertToString	5

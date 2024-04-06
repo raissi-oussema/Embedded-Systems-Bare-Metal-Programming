@@ -1,0 +1,22 @@
+/*
+ * tim.c
+ *
+ *  Created on: Mar 31, 2024
+ *      Author: Oussema Raissi
+ */
+#include "stm32f401xc.h"
+void tim2_1hz_init(void){
+	/*Enable clock access to tim2*/
+	//tim2 is connected to apb1 bud
+	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+	/*Set prescalar value*/
+	// system clock = 8Mhz for 1hz we need to divide 8 000 000  / 800 = 10 000
+	TIM2->PSC = 800 - 1; 
+	/*Set auto reload value*/
+	// deviding 10 000 / 10 000 = 1hz 
+	TIM2->ARR = 10000 - 1;
+	/*Clear counter*/
+	TIM2->CNT = 0;
+	/*Enable timer*/
+	TIM2->CR1 = TIM_CR1_CEN;
+}

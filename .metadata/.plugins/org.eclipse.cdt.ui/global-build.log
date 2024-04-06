@@ -1,13 +1,17 @@
-01:24:59 **** Incremental Build of configuration Debug for project systick ****
+13:44:05 **** Incremental Build of configuration Debug for project InputInterrupt ****
 make -j4 all 
-arm-none-eabi-gcc -o "systick.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\systick\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="systick.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: systick.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Inc" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:13:6: warning: return type of 'main' is not 'int' [-Wmain]
+   13 | void main(void)
+      |      ^~~~
+arm-none-eabi-gcc -o "InputInterrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\InputInterrupt\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="InputInterrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: InputInterrupt.elf
  
-arm-none-eabi-size  systick.elf 
-arm-none-eabi-objdump -h -S systick.elf  > "systick.list"
+arm-none-eabi-size  InputInterrupt.elf 
+arm-none-eabi-objdump -h -S InputInterrupt.elf  > "InputInterrupt.list"
    text	   data	    bss	    dec	    hex	filename
-   5364	    100	   1900	   7364	   1cc4	systick.elf
+   5592	    100	   1900	   7592	   1da8	InputInterrupt.elf
 Finished building: default.size.stdout
  
-Finished building: systick.list
+Finished building: InputInterrupt.list
  

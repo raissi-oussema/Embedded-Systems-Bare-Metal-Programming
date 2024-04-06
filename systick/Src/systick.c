@@ -12,7 +12,7 @@ void systicDelayMs(int delay){
     //refer to arm cortexm4 userguide
     /*****Configure systic********/
     /*Relaod systic value by needed time to count*/
-    SysTick->LOAD = delay*SYSTICK_LOAD_VALUE;
+    SysTick->LOAD = delay * SYSTICK_LOAD_VALUE;
     /*Clear systick current value reg*/
     SysTick->VAL = 0;
     /*Enable systick and select clock source*/

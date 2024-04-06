@@ -6,10 +6,10 @@
 #include 			"stm32f401xc.h"
 void main(void)
 {
-	RCC->AHB1ENR |= GPIOAEN;//set one at second field in RCC register to enable clock for register GPIO_PORT_B
+	RCC->AHB1ENR |= GPIOAEN;//set one at second field in RCC register to enable clock for register GPIO_PORT_A
 
-	GPIOA->MODER |= (1UL<<10); // set 1 at position 10 (counting from 0) in GPIO_MODE_REGISETR to set pin5 port B as an output
-	GPIOA->MODER &=~ (1UL<<11); //set 0 at position 11 (counting from 0) in GPIO_MODE_REGISETR to set pin5 port B as an output
+	GPIOA->MODER |= (1UL<<10); // set 1 at position 10 (counting from 0) in GPIO_MODE_REGISETR to set pin5 port A as an output
+	GPIOA->MODER &=~ (1UL<<11); //set 0 at position 11 (counting from 0) in GPIO_MODE_REGISETR to set pin5 port A as an output
 
 	while (1)
 	{

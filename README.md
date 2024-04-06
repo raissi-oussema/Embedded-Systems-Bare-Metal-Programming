@@ -1,14 +1,14 @@
-# STM32F4Cx Drivers Project for UART, I2C, Systic, general purpose timers, DMA, Interrupts, and SPI with Proteus Simulation
-This folder contains a collection of drivers for UART (Universal Asynchronous Receiver-Transmitter), I2C (Inter-Integrated Circuit), and SPI (Serial Peripheral Interface) peripherals for the STM32F4Cx microcontroller series. These drivers are designed to facilitate communication protocols commonly used in embedded systems.
+# STM32F4Cx Drivers Project for UART, I2C, Systick, general purpose timers, DMA, Interrupts, and SPI with Proteus Simulation
+This folder contains a collection of drivers for UART (Universal Asynchronous Receiver-Transmitter), I2C (Inter-Integrated Circuit), Systick, general purpose timers, DMA, Interrupts manipulation , and SPI (Serial Peripheral Interface) peripherals for the STM32F4Cx microcontroller series. These drivers are designed to facilitate communication protocols commonly used in embedded systems.
 
 # Contents
-1. \UART Driver: Enables communication over UART interface.
-2. \I2C Driver: Facilitates communication over the I2C bus.
-3. \SysTick Driver: Provides timing services and periodic interrupts.
-4. \General-Purpose Timers Driver: Allows users to configure and utilize general-purpose timers for various timing applications.
-5. \DMA (Direct Memory Access) Driver: Efficiently transfers data between memory and peripherals without CPU intervention.
-6. \Interrupts: Supports handling of interrupts from various sources.
-7. \SPI (Serial Peripheral Interface) Driver: Enables communication with SPI devices.
+1. UART Driver: Enables communication over UART interface.
+2. I2C Driver: Facilitates communication over the I2C bus.
+3. SysTick Driver: Provides timing services and periodic interrupts.
+4. General-Purpose Timers Driver: Allows users to configure and utilize general-purpose timers for various timing applications.
+5. DMA (Direct Memory Access) Driver: Efficiently transfers data between memory and peripherals without CPU intervention.
+6. Interrupts: Supports handling of interrupts from various sources.
+7. SPI (Serial Peripheral Interface) Driver: Enables communication with SPI devices.
 
 # Usage
 1. Clone or download the project repository.
