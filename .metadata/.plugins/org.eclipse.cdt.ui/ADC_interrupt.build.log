@@ -1,0 +1,20 @@
+20:55:17 **** Incremental Build of configuration Debug for project ADC_interrupt ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Inc" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:10:6: warning: return type of 'main' is not 'int' [-Wmain]
+   10 | void main(void){
+      |      ^~~~
+arm-none-eabi-gcc -o "ADC_interrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\ADC_interrupt\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_interrupt.elf
+ 
+arm-none-eabi-size  ADC_interrupt.elf 
+arm-none-eabi-objdump -h -S ADC_interrupt.elf  > "ADC_interrupt.list"
+   text	   data	    bss	    dec	    hex	filename
+   1064	      8	   1568	   2640	    a50	ADC_interrupt.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_interrupt.list
+ 
+
+20:55:20 Build Finished. 0 errors, 1 warnings. (took 2s.632ms)
+

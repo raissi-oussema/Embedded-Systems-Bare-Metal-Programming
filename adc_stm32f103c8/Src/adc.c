@@ -1,0 +1,35 @@
+#include "adc_stm32f1.h"
+#include <stdio.h>
+
+void pa1_adc_init(void) {
+
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+
+    GPIOA->CRL &= ~(GPIO_CRL_MODE1 | GPIO_CRL_CNF1);
+    GPIOA->CRL |= GPIO_CRL_CNF1_0;
+
+    RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
+
+
+    ADC1->SQR3 |= ADC_SQR3_SQ1_0;
+	ADC1 -> SQR1 &= ~ADC_SQR1_L_0;
+	ADC1 -> SQR1 &= ~ADC_SQR1_L_1;
+	ADC1 -> SQR1 &= ~ADC_SQR1_L_2;
+	ADC1 -> SQR1 &= ~ADC_SQR1_L_3;
+
+    ADC1->CR2 |= ADC_CR2_ADON;
+}
+
+void start_conversion(void) {
+    ADC1->CR2 |= ADC_CR2_ADON;
+
+    ADC1->CR2 |= ADC_CR2_CONT;
+
+}
+
+uint32_t adc_read(void) {
+	//printf("DR is :%ld\r\n", ADC1->DR);
+    while (!(ADC1->SR & ADC_SR_EOC)) {}
+
+    return ADC1->DR;
+}

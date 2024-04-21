@@ -1,0 +1,44 @@
+23:03:59 **** Incremental Build of configuration Debug for project ADC_stm32f1 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f401ccux.d" -MT"Startup/startup_stm32f401ccux.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f401ccux.o" "../Startup/startup_stm32f401ccux.s"
+arm-none-eabi-gcc "../Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Inc" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/adc.d" -MT"Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/adc.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F1xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Inc" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/uart_rx_check/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+In file included from ../Src/adc.c:1:
+../Inc/adc_stm32f1.h:5:10: fatal error: stm32f1xx.h: No such file or directory
+    5 | #include "stm32f1xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+In file included from C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:132,
+                 from ../Src/main.c:2:
+C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include/core_cm3.h:90:6: error: #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+   90 |     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+      |      ^~~~~
+make: *** [Src/subdir.mk:31: Src/adc.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/main.c:12:6: warning: return type of 'main' is not 'int' [-Wmain]
+   12 | void main(void)
+      |      ^~~~
+../Src/main.c: In function 'main':
+../Src/main.c:14:14: error: 'RCC_TypeDef' has no member named 'AHB1ENR'; did you mean 'AHBENR'?
+   14 |         RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+      |              ^~~~~~~
+      |              AHBENR
+../Src/main.c:14:25: error: 'RCC_AHB1ENR_GPIOAEN' undeclared (first use in this function); did you mean 'RCC_APB1ENR_SPI2EN'?
+   14 |         RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         RCC_APB1ENR_SPI2EN
+../Src/main.c:14:25: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:15:16: error: 'GPIO_TypeDef' has no member named 'MODER'; did you mean 'ODR'?
+   15 |         GPIOA->MODER |= (1UL<<10);
+      |                ^~~~~
+      |                ODR
+../Src/main.c:16:16: error: 'GPIO_TypeDef' has no member named 'MODER'; did you mean 'ODR'?
+   16 |         GPIOA->MODER &=~ (1UL<<11);
+      |                ^~~~~
+      |                ODR
+make: *** [Src/subdir.mk:33: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+23:04:01 Build Failed. 9 errors, 1 warnings. (took 2s.211ms)
+

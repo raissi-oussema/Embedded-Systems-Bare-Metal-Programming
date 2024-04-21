@@ -41,11 +41,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   00002199  00000000  00000000  0002397b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00054ca4  00000000  00000000  00025b14  2**0
+ 19 .debug_str    00054ca5  00000000  00000000  00025b14  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00000bfc  00000000  00000000  0007a7b8  2**2
+ 20 .debug_frame  00000bfc  00000000  00000000  0007a7bc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000068  00000000  00000000  0007b3b4  2**0
+ 21 .debug_line_str 00000068  00000000  00000000  0007b3b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -464,7 +464,7 @@ void *_sbrk(ptrdiff_t incr)
 08000434 <systicDelayMs>:
  */
 #include "stm32f401xc.h"
-#define SYSTICK_LOAD_VALUE (1000000UL)
+#define SYSTICK_LOAD_VALUE (16000000UL)
 
 
 void systicDelayMs(int delay){
@@ -475,7 +475,7 @@ void systicDelayMs(int delay){
     //refer to arm cortexm4 userguide
     /*****Configure systic********/
     /*Relaod systic value by needed time to count*/
-    SysTick->LOAD = delay*SYSTICK_LOAD_VALUE;
+    SysTick->LOAD = delay * SYSTICK_LOAD_VALUE;
  800043c:	687b      	ldr	r3, [r7, #4]
  800043e:	4a0d      	ldr	r2, [pc, #52]	; (8000474 <systicDelayMs+0x40>)
  8000440:	490d      	ldr	r1, [pc, #52]	; (8000478 <systicDelayMs+0x44>)
@@ -512,7 +512,7 @@ void systicDelayMs(int delay){
  800046e:	f85d 7b04 	ldr.w	r7, [sp], #4
  8000472:	4770      	bx	lr
  8000474:	e000e010 	.word	0xe000e010
- 8000478:	000f4240 	.word	0x000f4240
+ 8000478:	00f42400 	.word	0x00f42400
 
 0800047c <uart2_rxtx_init>:
 //enable transmitter from refmanu(uasart_cr1 (contriol reg) bit number 3)

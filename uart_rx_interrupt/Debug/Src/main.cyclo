@@ -1,0 +1,3 @@
+../Src/main.c:11:6:main	1
+../Src/main.c:21:13:uart_callback	2
+../Src/main.c:30:6:USART2_IRQHandler	2

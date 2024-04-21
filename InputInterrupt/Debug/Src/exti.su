@@ -1,2 +1,2 @@
 C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
-../Src/exti.c:9:6:pc13_exti_init	8	static,ignoring_inline_asm
+../Src/exti.c:9:6:pa4_exti_init	8	static,ignoring_inline_asm

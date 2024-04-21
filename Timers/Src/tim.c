@@ -12,7 +12,7 @@ void tim2_1hz_init(void){
 	/*Set prescalar value*/
 	/*
 	 *system clock = 1Mhz; for 1hz we need to divide 1 000 000  / 1 000 000 = 1hz
-	 *we cannot devide directly by 1 000 000 because reg is just 16 bit registre
+	 *we cannot devide directly by 1 000 000 because reg is just 16 bit register
 	 *so we devide by 1111 1111 1111 1111 = 65535 - 1
 	 */
 	TIM2->PSC = 65535 - 1;
@@ -21,7 +21,7 @@ void tim2_1hz_init(void){
 	 *Now the frequence is 15hz 
 	 * we need to count 15 step from 15hz to got frequency of 1hz ,then relaod the counter
 	 */
-	TIM2->ARR = 15 - 1;
+	TIM2->ARR = 244 - 1;
 	/*Clear counter*/
 	TIM2->CNT = 0;
 	/*Enable timer*/

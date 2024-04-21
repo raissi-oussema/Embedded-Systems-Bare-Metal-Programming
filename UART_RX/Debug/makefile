@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := UART_TX
+BUILD_ARTIFACT_NAME := UART_RX
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-UART_TX.elf \
+UART_RX.elf \
 
 MAP_FILES += \
-UART_TX.map \
+UART_RX.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-UART_TX.list \
+UART_RX.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: UART_TX.elf secondary-outputs
+main-build: UART_RX.elf secondary-outputs
 
 # Tool invocations
-UART_TX.elf UART_TX.map: $(OBJS) $(USER_OBJS) C:\MyDocuments\Embedded\ c.c++\FormationEmbeddeUtorrent\UART_TX\STM32F401CCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "UART_TX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\UART_TX\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+UART_RX.elf UART_RX.map: $(OBJS) $(USER_OBJS) C:\MyDocuments\Embedded\ c.c++\FormationEmbeddeUtorrent\UART_RX\STM32F401CCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "UART_RX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\UART_RX\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_RX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-UART_TX.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "UART_TX.list"
+UART_RX.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "UART_RX.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) UART_TX.elf UART_TX.list UART_TX.map default.size.stdout
+	-$(RM) UART_RX.elf UART_RX.list UART_RX.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

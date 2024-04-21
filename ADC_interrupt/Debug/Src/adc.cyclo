@@ -1,0 +1,5 @@
+C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+../Src/adc.c:10:6:pa1_adc_with_interrupt_init	1
+../Src/adc.c:38:6:pa1_adc_init	1
+../Src/adc.c:59:6:start_conversion	1
+../Src/adc.c:65:10:adc_read	2

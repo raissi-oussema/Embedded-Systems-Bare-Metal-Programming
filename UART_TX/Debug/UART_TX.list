@@ -142,7 +142,7 @@ void uart2_tx_init(void){
  8000228:	4a11      	ldr	r2, [pc, #68]	; (8000270 <uart2_tx_init+0x8c>)
  800022a:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
  800022e:	6213      	str	r3, [r2, #32]
-	GPIOA->AFR[0]&=~ (1U<<11); // 0111:AF7 should be configured (look datasheet)
+	GPIOA->AFR[0]&=~ (1U<<11); // 0111:AF7 should be configured (look datasheet) Alternate function mapping (continued)
  8000230:	4b0f      	ldr	r3, [pc, #60]	; (8000270 <uart2_tx_init+0x8c>)
  8000232:	6a1b      	ldr	r3, [r3, #32]
  8000234:	4a0e      	ldr	r2, [pc, #56]	; (8000270 <uart2_tx_init+0x8c>)

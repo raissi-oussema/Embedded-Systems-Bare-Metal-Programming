@@ -6,7 +6,7 @@
  */
 #include "exti.h"
 
-void pc13_exti_init(void){
+void pa4_exti_init(void){
     /*Disable global interrupts*/ // Good practice
     __disable_irq();
     /*Enavle clock access for GPIOA*/
@@ -16,11 +16,8 @@ void pc13_exti_init(void){
     GPIOA->MODER &=~ GPIO_MODER_MODE4_1;
     /*Enable clock access to SYSCONFIG*/
     RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN;
-    /*Select PORTA for EXTI4*/
-    SYSCFG->EXTICR[1] &=~ (1UL << 0);
-    SYSCFG->EXTICR[1] &=~ (1UL << 1);
-    SYSCFG->EXTICR[1] &=~ (1UL << 2);
-    SYSCFG->EXTICR[1] &=~ (1UL << 3);
+    /*Connect PORTA for EXTI4*/
+    SYSCFG->EXTICR[1] |= SYSCFG_EXTICR2_EXTI4_PA;
     /*Unmask EXTI4*/
     EXTI->IMR |= EXTI_IMR_IM4; // Ref manual for EXTI_IMR
     /*Select falling edge trigger*/ // you can try rising edge too

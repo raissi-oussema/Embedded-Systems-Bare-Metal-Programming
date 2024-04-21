@@ -207,15 +207,15 @@ void main(void)
  80002e2:	f023 0301 	bic.w	r3, r3, #1
  80002e6:	6113      	str	r3, [r2, #16]
 		// toggle LED
-		GPIOA->ODR ^= (1UL<<5);
- 80002e8:	4b05      	ldr	r3, [pc, #20]	; (8000300 <main+0x68>)
- 80002ea:	695b      	ldr	r3, [r3, #20]
- 80002ec:	4a04      	ldr	r2, [pc, #16]	; (8000300 <main+0x68>)
- 80002ee:	f083 0320 	eor.w	r3, r3, #32
- 80002f2:	6153      	str	r3, [r2, #20]
 		printf ("A second just passed \n\r");
- 80002f4:	4803      	ldr	r0, [pc, #12]	; (8000304 <main+0x6c>)
- 80002f6:	f000 fa65 	bl	80007c4 <iprintf>
+ 80002e8:	4806      	ldr	r0, [pc, #24]	; (8000304 <main+0x6c>)
+ 80002ea:	f000 fa6b 	bl	80007c4 <iprintf>
+		GPIOA->ODR ^= (1UL<<5);
+ 80002ee:	4b04      	ldr	r3, [pc, #16]	; (8000300 <main+0x68>)
+ 80002f0:	695b      	ldr	r3, [r3, #20]
+ 80002f2:	4a03      	ldr	r2, [pc, #12]	; (8000300 <main+0x68>)
+ 80002f4:	f083 0320 	eor.w	r3, r3, #32
+ 80002f8:	6153      	str	r3, [r2, #20]
 		while (!(TIM2->SR & TIM_SR_UIF)){}
  80002fa:	e7e5      	b.n	80002c8 <main+0x30>
  80002fc:	40023800 	.word	0x40023800
@@ -492,18 +492,23 @@ void tim2_1hz_init(void){
  8000458:	4a0c      	ldr	r2, [pc, #48]	; (800048c <tim2_1hz_init+0x3c>)
  800045a:	f043 0301 	orr.w	r3, r3, #1
  800045e:	6413      	str	r3, [r2, #64]	; 0x40
-	/*Set prescalar value*/
-	// system clock = 16Mhz; for 1hz we need to divide 16 000 000  / 1 600 = 10 000
-	// we cannot bevide directly by 16 000 000 because reg is just 16 bit registre
+	/*
+	 *system clock = 1Mhz; for 1hz we need to divide 1 000 000  / 1 000 000 = 1hz
+	 *we cannot devide directly by 1 000 000 because reg is just 16 bit register
+	 *so we devide by 1111 1111 1111 1111 = 65535 - 1
+	 */
 	TIM2->PSC = 65535 - 1;
  8000460:	f04f 4380 	mov.w	r3, #1073741824	; 0x40000000
  8000464:	f64f 72fe 	movw	r2, #65534	; 0xfffe
  8000468:	629a      	str	r2, [r3, #40]	; 0x28
 	/*Set auto reload value*/
-	// deviding 10 000 / 10 000 = 1hz 
-	TIM2->ARR = 15 - 1;
+	/*
+	 *Now the frequence is 15hz 
+	 * we need to count 15 step from 15hz to got frequency of 1hz ,then relaod the counter
+	 */
+	TIM2->ARR = 244 - 1;
  800046a:	f04f 4380 	mov.w	r3, #1073741824	; 0x40000000
- 800046e:	220e      	movs	r2, #14
+ 800046e:	22f3      	movs	r2, #243	; 0xf3
  8000470:	62da      	str	r2, [r3, #44]	; 0x2c
 	/*Clear counter*/
 	TIM2->CNT = 0;

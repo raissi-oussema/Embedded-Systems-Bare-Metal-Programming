@@ -1,9 +1,0 @@
-/* Define all needed address BusReg to toggle a led attached pin5 on port B with proteus 8*/
-#include 			"stm32f4xx.h"
-#define 			GPIOAEN			(1U<<0)
-
-
-void main(void)
-{
-
-}

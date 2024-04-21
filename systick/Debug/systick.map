@@ -1204,18 +1204,18 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000000000001ad7      0x647 ./Src/uart.o
  .debug_line    0x000000000000211e       0x7b ./Startup/startup_stm32f401ccux.o
 
-.debug_str      0x0000000000000000    0x54ca4
+.debug_str      0x0000000000000000    0x54ca5
  .debug_str     0x0000000000000000    0x529e2 ./Src/main.o
                                       0x52bdd (size before relaxing)
  .debug_str     0x00000000000529e2     0x20d6 ./Src/syscalls.o
                                        0x98bc (size before relaxing)
  .debug_str     0x0000000000054ab8       0x70 ./Src/sysmem.o
                                        0x6073 (size before relaxing)
- .debug_str     0x0000000000054b28       0x53 ./Src/systick.o
-                                      0x4f027 (size before relaxing)
- .debug_str     0x0000000000054b7b       0xfa ./Src/uart.o
+ .debug_str     0x0000000000054b28       0x54 ./Src/systick.o
+                                      0x4f028 (size before relaxing)
+ .debug_str     0x0000000000054b7c       0xfa ./Src/uart.o
                                       0x4f22e (size before relaxing)
- .debug_str     0x0000000000054c75       0x2f ./Startup/startup_stm32f401ccux.o
+ .debug_str     0x0000000000054c76       0x2f ./Startup/startup_stm32f401ccux.o
                                          0x74 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0xbfc

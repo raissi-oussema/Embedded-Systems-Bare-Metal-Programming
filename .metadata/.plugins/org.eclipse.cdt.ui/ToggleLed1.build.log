@@ -1,23 +1,10 @@
-23:05:56 **** Incremental Build of configuration Debug for project ToggleLed1 ****
+05:43:07 **** Incremental Build of configuration Debug for project ToggleLed1 ****
 make -j4 all 
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f401ccux.d" -MT"Startup/startup_stm32f401ccux.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f401ccux.o" "../Startup/startup_stm32f401ccux.s"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-../Src/main.c:7:6: warning: return type of 'main' is not 'int' [-Wmain]
-    7 | void main(void)
-      |      ^~~~
-arm-none-eabi-gcc -o "ToggleLed1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\ToggleLed1\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ToggleLed1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ToggleLed1.elf
- 
 arm-none-eabi-size  ToggleLed1.elf 
-arm-none-eabi-objdump -h -S ToggleLed1.elf  > "ToggleLed1.list"
    text	   data	    bss	    dec	    hex	filename
     760	      8	   1568	   2336	    920	ToggleLed1.elf
 Finished building: default.size.stdout
  
-Finished building: ToggleLed1.list
- 
 
-23:05:59 Build Finished. 0 errors, 1 warnings. (took 2s.951ms)
+05:43:07 Build Finished. 0 errors, 0 warnings. (took 754ms)
 

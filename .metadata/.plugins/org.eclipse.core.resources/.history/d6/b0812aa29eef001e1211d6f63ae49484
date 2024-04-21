@@ -1,8 +1,0 @@
-/*
- * tim.c
- *
- *  Created on: Mar 31, 2024
- *      Author: Oussema Raissi
- */
-#include "stm32f401xc.h"
-

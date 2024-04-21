@@ -1,0 +1,37 @@
+/* Define all needed address BusReg to toggle a led attached pin5 on port B with proteus 8*/
+#include 			"stm32f401xc.h"
+#include 			"adc.h"
+#include            <stdio.h>
+#include 			"uart.h"
+
+uint32_t value;
+static void adc_callback(void);
+
+void main(void){
+
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	GPIOA->MODER |= (1UL<<10); 
+	GPIOA->MODER &=~ (1UL<<11);
+	
+	pa1_adc_with_interrupt_init();
+	start_conversion();
+	value = adc_read();
+	while (1) {
+	}
+}
+
+static void adc_callback(void){
+	GPIOA->ODR |= (1<<5);
+	for (int i=0;i<100000;i++) {}
+	GPIOA->ODR &=~ (1<<5);
+	for (int i=0;i<100000;i++) {}
+}
+void ADC_IRQHandler(void){
+	/*Get the ADC staus register*/
+	if ((ADC1->SR & ADC_SR_EOC)!=0){
+		/*Clear ADC_SR_EOC*/
+		ADC1->SR &=~ ADC_SR_EOC;
+		//callback (toggle the LED after any conversion)
+		adc_callback();
+	}
+}

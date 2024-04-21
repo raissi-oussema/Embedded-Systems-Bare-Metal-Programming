@@ -5,7 +5,7 @@
  *      Author: Oussema Raissi
  */
 #include "stm32f401xc.h"
-#define SYSTICK_LOAD_VALUE (1000000UL)
+#define SYSTICK_LOAD_VALUE (16000000UL)
 
 
 void systicDelayMs(int delay){

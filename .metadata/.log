@@ -417,3 +417,139 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\MyDocuments\E
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-04-05 22:55:18.643
 !MESSAGE Indexed 'InputInterrupt' (7 sources, 67 headers) in 2.09 sec: 3,274 declarations; 5,789 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.022%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-07 12:10:09.862
+!MESSAGE Indexed 'uart_rx_interrupt' (4 sources, 62 headers) in 4.97 sec: 3,089 declarations; 5,242 references; 2 unresolved inclusions; 1 syntax errors; 4 unresolved names (0.048%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-07 12:52:48.919
+!MESSAGE Indexed 'ADC_interrupt' (5 sources, 8 headers) in 0.775 sec: 805 declarations; 1,119 references; 16 unresolved inclusions; 29 syntax errors; 623 unresolved names (24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-12 20:24:49.551
+!MESSAGE Indexed 'ADC' (5 sources, 65 headers) in 3.97 sec: 3,250 declarations; 5,557 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.023%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-12 22:37:21.431
+!MESSAGE Indexed 'ADC_stm32f1' (5 sources, 63 headers) in 1.51 sec: 2,834 declarations; 4,102 references; 5 unresolved inclusions; 30 syntax errors; 583 unresolved names (7.8%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-12 22:58:16.937
+!MESSAGE Indexed 'ADC_stm32f1' (5 sources, 68 headers) in 1.47 sec: 3,820 declarations; 6,519 references; 2 unresolved inclusions; 2 syntax errors; 50 unresolved names (0.48%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-12 23:11:15.518
+!MESSAGE Indexed 'adc_stm32f103c8' (3 sources, 53 headers) in 0.81 sec: 1,950 declarations; 2,831 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
+!SESSION 2024-04-20 05:33:58.641 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-20 05:34:54.137
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-20 05:34:54.154
+!MESSAGE Log4j2 initialized with config file C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-20 05:35:30.160
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.stlink 4 4 2024-04-20 05:41:31.839
+!MESSAGE ST-LINK GDB server failed to start (exit code = 6)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-04-20 05:41:32.256
+!MESSAGE Error in final launch sequence:
+
+Failed to start GDB server
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to start GDB server
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:334)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1038)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.runtime.CoreException: Error in initializing ST-LINK device.
+Reason: (6) ST-LINK firmware upgrade required.
+Please upgrade the ST-LINK firmware using the upgrade tool. Reconnect ST-LINK and click OK
+	at com.st.stm32cube.ide.mcu.debug.stlink.StLinkDebugHardware.verifyServer(StLinkDebugHardware.java:1816)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:199)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:93)
+	at com.st.stm32cube.ide.mcu.debug.launch.LaunchSequenceUtil.stepStartGDBServer(LaunchSequenceUtil.java:206)
+	at com.st.stm32cube.ide.mcu.debug.launch.GDBExtendedJtagDSFFinalLaunchSequence_7_12.stepStartGDBServer(GDBExtendedJtagDSFFinalLaunchSequence_7_12.java:104)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+!SUBENTRY 1 com.st.stm32cube.ide.mcu.debug.launch 4 0 2024-04-20 05:41:32.262
+!MESSAGE Failed to start GDB server
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error in initializing ST-LINK device.
+Reason: (6) ST-LINK firmware upgrade required.
+Please upgrade the ST-LINK firmware using the upgrade tool. Reconnect ST-LINK and click OK
+	at com.st.stm32cube.ide.mcu.debug.stlink.StLinkDebugHardware.verifyServer(StLinkDebugHardware.java:1816)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:199)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:93)
+	at com.st.stm32cube.ide.mcu.debug.launch.LaunchSequenceUtil.stepStartGDBServer(LaunchSequenceUtil.java:206)
+	at com.st.stm32cube.ide.mcu.debug.launch.GDBExtendedJtagDSFFinalLaunchSequence_7_12.stepStartGDBServer(GDBExtendedJtagDSFFinalLaunchSequence_7_12.java:104)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+!SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.stlink 4 0 2024-04-20 05:41:32.262
+!MESSAGE Error in initializing ST-LINK device.
+Reason: (6) ST-LINK firmware upgrade required.
+Please upgrade the ST-LINK firmware using the upgrade tool. Reconnect ST-LINK and click OK
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:07:08.807
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 9 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:07:08.809
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:07:08.812
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 9 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:07:08.812
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:20:16.426
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 14 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:20:16.427
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:20:16.429
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 14 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-04-20 20:20:16.431
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2024-04-20 21:43:00.959
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-20 22:33:10.679
+!MESSAGE Indexed 'I2C' (5 sources, 61 headers) in 4.85 sec: 2,689 declarations; 3,960 references; 7 unresolved inclusions; 30 syntax errors; 589 unresolved names (8.1%)

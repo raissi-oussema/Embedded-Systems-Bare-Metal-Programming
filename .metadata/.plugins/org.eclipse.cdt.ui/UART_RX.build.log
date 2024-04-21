@@ -1,0 +1,20 @@
+05:37:09 **** Build of configuration Debug for project UART_RX ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -DSTM32F401xC -c -I../Inc -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:23:6: warning: return type of 'main' is not 'int' [-Wmain]
+   23 | void main(void)
+      |      ^~~~
+arm-none-eabi-gcc -o "UART_RX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\UART_RX\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_RX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_RX.elf
+ 
+arm-none-eabi-size  UART_RX.elf 
+arm-none-eabi-objdump -h -S UART_RX.elf  > "UART_RX.list"
+   text	   data	    bss	    dec	    hex	filename
+    888	      8	   1568	   2464	    9a0	UART_RX.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_RX.list
+ 
+
+05:37:11 Build Finished. 0 errors, 1 warnings. (took 1s.861ms)
+

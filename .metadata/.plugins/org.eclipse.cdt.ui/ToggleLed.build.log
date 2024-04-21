@@ -1,20 +1,22 @@
-22:23:55 **** Incremental Build of configuration Debug for project ToggleLed ****
+05:37:04 **** Build of configuration Debug for project ToggleLed ****
 make -j4 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CCUx -DSTM32 -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-../Src/main.c:8:6: warning: return type of 'main' is not 'int' [-Wmain]
-    8 | void main(void)
+../Src/main.c:6:6: warning: return type of 'main' is not 'int' [-Wmain]
+    6 | void main(void)
       |      ^~~~
-arm-none-eabi-gcc -o "ToggleLed.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\MyDocuments\Embedded c.c++\FormationEmbeddeUtorrent\ToggleLed\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ToggleLed.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ToggleLed.elf
- 
-arm-none-eabi-size  ToggleLed.elf 
-arm-none-eabi-objdump -h -S ToggleLed.elf  > "ToggleLed.list"
-   text	   data	    bss	    dec	    hex	filename
-    752	      8	   1568	   2328	    918	ToggleLed.elf
-Finished building: default.size.stdout
- 
-Finished building: ToggleLed.list
- 
+../Src/main.c: In function 'main':
+../Src/main.c:8:9: error: 'RCC_AHB1EN_R' undeclared (first use in this function)
+    8 |         RCC_AHB1EN_R |= (1UL << 1);//set one at second field in RCC register to enable clock for register GPIO_PORT_B
+      |         ^~~~~~~~~~~~
+../Src/main.c:8:9: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:10:9: error: 'GPIOB_MODR_R' undeclared (first use in this function)
+   10 |         GPIOB_MODR_R |= (1UL<<10); // set 1 at position 10 (counting from 0) in GPIO_MODE_REGISETR to set pin5 port B as an output
+      |         ^~~~~~~~~~~~
+../Src/main.c:13:9: error: 'GPIO_OD_R' undeclared (first use in this function)
+   13 |         GPIO_OD_R |= (1UL<<5); // set 1 at postion 5 in GPIO_OUTPUT_DATA_REGISTER to turn on the diode
+      |         ^~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
 
-22:23:57 Build Finished. 0 errors, 1 warnings. (took 1s.795ms)
+05:37:06 Build Failed. 4 errors, 1 warnings. (took 1s.147ms)
 

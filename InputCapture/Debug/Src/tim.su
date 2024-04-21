@@ -1,4 +1,4 @@
 ../Src/tim.c:8:6:tim2_1hz_init	4	static
 ../Src/tim.c:30:6:tim2_pa5_compare_mode	4	static
 ../Src/tim.c:68:6:tim3_pin6_input_capture	4	static
-../Src/tim.c:89:7:itoa	32	static
+../Src/tim.c:89:7:convertToString	32	static

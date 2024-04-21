@@ -1,0 +1,7 @@
+C:/MyDocuments/Embedded c.c++/FormationEmbeddeUtorrent/chip_headers/CMSIS/include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Src/uart.c:16:6:uart2_rx_interrupt_init	8	static
+../Src/uart.c:57:6:uart2_rxtx_init	8	static
+../Src/uart.c:95:6:uart_set_baudrate	24	static
+../Src/uart.c:98:10:compute_uart_bd	16	static
+../Src/uart.c:101:6:uart2_write	16	static
+../Src/uart.c:107:6:uart_read	4	static

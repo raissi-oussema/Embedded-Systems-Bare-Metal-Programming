@@ -11,14 +11,25 @@ int __io_putchar(int ch){
 uint32_t value;
 void main(void)
 {
-	pa1_adc_init();
-	uart2_rxtx_init();
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	GPIOA->MODER |= (1UL<<10); 
+	GPIOA->MODER &=~ (1UL<<11);
 
-	while (1){
-		start_conversion();
-		value = adc_read();
-		printf ("the value is %d \n\r",(int)value);
-		for (int i=0; i<1000000;i++){}
-		//uart2_write(value);
+	uart2_rxtx_init();
+    pa1_adc_init();
+    start_conversion();
+
+    while (1) {
+        value = adc_read();
+		if (value!=0){
+			GPIOA->ODR |= (1<<5);
+			printf("ADC value: %lu\n\r", value);
+        	for (int i=0;i<1000000;i++){}
+		}
+		else{
+			GPIOA->ODR &=~ (1<<5);
+			printf("ADC value: %lu\n\r", value);
+        	for (int i=0;i<1000000;i++){}
+		}
 	}
 }
